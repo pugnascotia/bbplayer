@@ -114,9 +114,9 @@
     this.bbplayer.getElementsByClassName('bb-trackLength').item(0).innerHTML = duration;
     this.bbplayer.getElementsByClassName('bb-trackTime').item(0).innerHTML = elapsed;
     var titleElement = this.bbplayer.getElementsByClassName('bb-trackTitle').item(0);
-	if (titleElement.innerHTML.trim().length === 0) {
-		titleElement.innerHTML = title;
-	}
+  if (titleElement.innerHTML.trim().length === 0) {
+    titleElement.innerHTML = title;
+  }
     var playButton = this.bbplayer.getElementsByClassName("bb-play").item(0);
     if (this.bbaudio.paused) {
       playButton.classList.remove("bb-playing");
@@ -351,5 +351,17 @@
       }
     );
   });
+
+  window.BBPlayer = {
+    reinitialize: function() {
+      bbplayers = [];
+      [].forEach.call(
+        document.getElementsByClassName("bbplayer"),
+        function (el) {
+          bbplayers.push(new BBPlayer(el));
+        }
+      );
+    }
+  };
 
 }());
