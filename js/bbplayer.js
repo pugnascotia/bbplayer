@@ -361,6 +361,10 @@
           bbplayers.push(new BBPlayer(el));
         }
       );
+    },
+
+    add: function(el) {
+      bbplayers.push(new BBPlayer(el));
     }
   };
 
